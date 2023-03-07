@@ -1,12 +1,16 @@
 package kz.aibat.dbconfigureapp.mapper;
 
-import kz.aibat.dbconfigureapp.dto.PeopleDTO;
-import kz.aibat.dbconfigureapp.model.People;
+import kz.aibat.dbconfigureapp.dto.PersonDTO;
+import kz.aibat.dbconfigureapp.model.Person;
 import org.mapstruct.Mapper;
 
-@Mapper
-public interface PeopleMapper {
-    PeopleDTO peopleToPeopleDTO(People people);
+import java.util.List;
 
-    People peopleDTOToPeople(PeopleDTO peopleDTO);
+@Mapper(componentModel = "spring")
+public interface PeopleMapper {
+    PersonDTO personToPersonDTO(Person people);
+
+    Person personDTOToPerson(PersonDTO personDTO);
+
+    List<PersonDTO> personListToPersonDTOList(List<Person> personList);
 }
