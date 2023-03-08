@@ -6,9 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +24,21 @@ public class JdbcApiController {
 
     @GetMapping("/{id}")
     public ResponseEntity<PersonDTO> list(@PathVariable("id") Long id){
-        return null;
+        return new ResponseEntity<>(personDAO.show(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/save")
+    public ResponseEntity<Integer> save(@RequestBody PersonDTO personDTO){
+        return new ResponseEntity<>(personDAO.save(personDTO), HttpStatus.OK);
+    }
+
+    @PatchMapping("/update/{id}")
+    public ResponseEntity<Integer> update(@RequestBody PersonDTO personDTO, @PathVariable("id") Long id){
+        return new ResponseEntity<>(personDAO.update(id, personDTO), HttpStatus.OK);
+    }
+
+    @DeleteMapping ("/delete/{id}")
+    public ResponseEntity<Integer> delete(@PathVariable("id") Long id){
+        return new ResponseEntity<>(personDAO.delete(id), HttpStatus.OK);
     }
 }
