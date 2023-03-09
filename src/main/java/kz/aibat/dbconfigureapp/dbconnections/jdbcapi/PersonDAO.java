@@ -1,8 +1,9 @@
-package kz.aibat.dbconfigureapp.dao.jdbcapi;
+package kz.aibat.dbconfigureapp.dbconnections.jdbcapi;
 
 import kz.aibat.dbconfigureapp.dto.PersonDTO;
 import kz.aibat.dbconfigureapp.mapper.PeopleMapper;
 import kz.aibat.dbconfigureapp.model.Person;
+import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
+@RequiredArgsConstructor
 public class PersonDAO {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/DBConfigure";

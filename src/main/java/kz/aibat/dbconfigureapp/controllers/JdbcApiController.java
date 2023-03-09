@@ -1,16 +1,15 @@
 package kz.aibat.dbconfigureapp.controllers;
 
-import kz.aibat.dbconfigureapp.dao.jdbcapi.PersonDAO;
+import kz.aibat.dbconfigureapp.dbconnections.jdbcapi.PersonDAO;
 import kz.aibat.dbconfigureapp.dto.PersonDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/jdbcapi")
 @RequiredArgsConstructor
 public class JdbcApiController {
