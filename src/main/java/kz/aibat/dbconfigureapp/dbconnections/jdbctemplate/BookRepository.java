@@ -2,7 +2,6 @@ package kz.aibat.dbconfigureapp.dbconnections.jdbctemplate;
 
 import kz.aibat.dbconfigureapp.model.Book;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,9 +15,5 @@ public interface BookRepository {
 
     List<Book> findAll();
 
-    List<Book> findByNameAndPrice(String name, BigDecimal price);
-
     Optional<Book> findById(Long id);
-
-    String getNameById(Long id);
 }
